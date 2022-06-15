@@ -70,7 +70,7 @@ app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 })
-app.listen(5000, () => {
+app.listen(5000,0.0.0.0, () => {
     console.log('listening on 5000')
 })
 app.get('/', async function (req, res) {
