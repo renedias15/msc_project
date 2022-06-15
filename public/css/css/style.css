@@ -1,0 +1,132 @@
+@import '~noty/src/noty.scsss';
+@import '~noty/src/themes/mint.scss';
+a:hover{
+	text-decoration: none;
+}
+
+a:visited{
+	text-decoration: none;
+}
+
+a:active{
+	text-decoration: none;
+}
+
+body{
+	background-color: #2B2E4A;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+	color: white;
+}
+
+a {
+	transition: all 0.25s;
+}
+
+.container-title {
+	text-align: center;
+	color: white;
+	padding-top: 20px;
+	font-size: 30px;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.container-1 {
+	/* background-color: #301717; */
+	padding: 10px;
+}
+
+.container-2 {
+	background-color: rgba(232, 69, 69, 0.31);
+	padding: 10px;
+}
+
+.container-3 {
+	/* background-color: #B700FF; */
+	padding: 10px;
+}
+
+.container-4 {
+	/* background-color: #339999; */
+	padding: 10px;
+}
+
+.page{
+	/* background-color: grey; */
+	margin-top: 10px;
+}
+
+.left-p, .right-p {
+	text-align: center;
+}
+
+.right-p{
+	float: right;
+}
+
+ /* Set margin of .right-p and .left-p */
+.right-p , .left-p{
+	margin: 10px 30px;
+}
+
+.card { 	
+	/* background-color: rgba(144, 55, 74, 0.41); */
+	padding: 0;
+	margin: 30px 0;
+	border: 5px solid rgba(255, 255, 255, 0);
+	transition: all 0.25s;
+}
+
+.card:hover {
+	transition: 0.5s;
+	border: 5px solid white;
+}
+
+.card img {
+	width: 200px;
+	padding: 10px;
+	display: block;
+	margin: 0 auto;
+}
+
+.card p {
+	text-align: center;
+	padding: 10px;
+	width: 70%;
+	display: block;
+	margin: 0 auto;
+	font-size: 15px;
+}
+
+.container-3 p {
+	text-align: center;
+	padding: 15px 40px;
+}
+
+.container-3 img {
+	width: 100%;
+	padding: 15px;
+}
+
+.container-4 p{
+	text-align: center;
+	padding: 15px 40px;
+}
+
+.container-4 img {
+	width: 100%;
+	padding: 15px;
+	float: right;
+}
+
+
+@media only screen and (max-width: 710px) {
+	html .nav li {
+		display: block;
+		margin: 10px;
+		padding: 0;
+	}
+
+  }

@@ -1,0 +1,1 @@
+in user/model required:true used to give error , fixed by deleting required

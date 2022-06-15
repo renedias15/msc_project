@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Italian pizza",
+    "image": "pizza-1.jpg",
+    "price": "250",
+    "size": "small"
+  },
+  {
+    "name": "Greek pizza",
+    "image": "pizza-2.jpg",
+    "price": "300",
+    "size": "medium"
+  },
+  {
+    "name": "Caucasian pizza",
+    "image": "pizza-3.jpg",
+    "price": "200",
+    "size": "small"
+  },
+  {
+    "name": "American Pizza",
+    "image": "pizza-4.jpg",
+    "price": "500",
+    "size": "large"
+  },
+  {
+    "name": "Tomato pie",
+    "image": "pizza-5.jpg",
+    "price": "350",
+    "size": "medium"
+  },
+  {
+    "name": "Margherita",
+    "image": "pizza-6.jpg",
+    "price": "200",
+    "size": "small"
+  }
+]
