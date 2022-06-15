@@ -12,7 +12,7 @@ const item = require('./models/item')
 const Cart = require('./models/cart')
 const orderModel = require('./models/order')
 
-const PORT = process.env.PORT || 3300     //if any other port exists then listen there else 3000
+const PORT = process.env.PORT || 5000     //if any other port exists then listen there else 3000
 const passportInit = require('./config/passport')
 
 app.use(express.json())
@@ -70,8 +70,8 @@ app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 })
-app.listen(3300, () => {
-    console.log('listening on 3300')
+app.listen(5000, () => {
+    console.log('listening on 5000')
 })
 app.get('/', async function (req, res) {
     const food = await item.find()
