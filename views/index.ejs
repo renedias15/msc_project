@@ -48,8 +48,8 @@
 					<li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
 					<li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
 					<li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-					<li class="nav-item"><a href="http://localhost:3300/register" class="nav-link">Register</a></li>
-					<li class="nav-item active"><a href="http://localhost:3300/cart"><img class="cart"
+					<li class="nav-item"><a href="http://localhost:5000/register" class="nav-link">Register</a></li>
+					<li class="nav-item active"><a href="http://localhost:5000/cart"><img class="cart"
 								src="images/cart.png" width="45" height="40"></a></li>
 
 				</ul>
@@ -207,7 +207,7 @@
 									Consonantia </p>
 								<p class="price"><span>₹<%= food.price %></span>
 									<a data-food="<%= JSON.stringify(food) %>"
-										href="http://localhost:3300/addtoCart/<%=food._id%>"
+										href="http://localhost:5000/addtoCart/<%=food._id%>"
 										class="ml-2 btn btn-white btn-outline-white" onclick=showNotif()>Order</a>
 								</p>
 							</div>
