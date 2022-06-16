@@ -149,7 +149,7 @@ app.get('/cart/order', function (req, res) {
             delete req.session.cart
             setTimeout(function() {   
                    return res.redirect('/')
-            }, 1000);    
+            }, 5000);    
         }).catch(err => {
             req.flash('error', 'something went wrong')
         })
