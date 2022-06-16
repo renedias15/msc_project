@@ -9142,30 +9142,49 @@ textarea.form-control {
     position: absolute;
      color: #fac564;
       text-decoration: underline; }
+      .uniform{
+        padding: 0 30px 0 30px;
+      }
+      #hide1{
+        font-size: 20px;
+        font-weight: 600;
+        padding: 0 10px;
+      }
+      #hide2{
+        font-size: 20px;
+        font-weight: 600;
+        padding: 0 10px;
+      }
   .tr
   {
     font-size: 19px;
     color: #fac564;
   }
   .tr th{
-    font-family:helvetica
+    font-family:helvetica;
+    padding-bottom: 20px;
   }
   .tr #product
   {
-    padding-right: 113px;
+    padding-right: 95px;
     padding-left: 5px;
   }
-  .tr #name{padding-right: 33px;}
+  .trx td{
+    padding-bottom: 10px;
+  }
+  .tr #name{padding-right: 47px;}
   .tr #qty{padding-right: 20px;}
   .trx td p{
     font-family:helvetica;
     color: antiquewhite;
     font-size: 17px;
   }
+  .trx td #itemname{
+    padding-right: 0px;
+  }
   .trx td #itemqty{
     padding-right: 10px;
   }
-  
       @media (max-width: 500px) {     /* specially for iphone se*/
         .login-box  {
           max-width: 315px; }
@@ -9194,26 +9213,44 @@ textarea.form-control {
               padding-right: 25px;
               padding-left: 0px;
             }
+            .tr #name{
+              padding-right: 35px;
+            }
             .trx #piz_thumb{
-              width: 55px; 
-              height: 55px;
+              width: 30px; 
+              height: 30px;
               margin-right: 0px;
             }
+            .trx .uniform{
+              padding: 0px 0px;
+            }
             .trx #itemname {
+              
               font-size: 14px;
-              margin-right: 22px;
+              padding-right: 28px;
             
             }
             .trx #itemqty {
+              padding-left: 20px;
               margin-right: 10px;
               font-size: 14px;
             }
             .trx #itemprice {
-              
+              padding-left: 0px;
               font-size: 14px;
             }
             .trx #hide1,#hide2{
-              display: none;
+              padding: 6px;
+              font-size: 10px;
+            }
+            .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+              font-size: 10px;
+              padding-top: .5rem;
+              padding-bottom: .5rem;
+            }
+            #cartimg {
+              height: 40px;
+              width: 20px;
             }
       }
       @media (min-width: 576px) {
