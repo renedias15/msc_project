@@ -460,6 +460,9 @@ pre {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
+  @media (max-width: 321px) {
+    .container {
+      max-width: 350px; } }
   @media (min-width: 576px) {
     .container {
       max-width: 540px; } }
@@ -7526,7 +7529,9 @@ h1, h2, h3, h4, h5,
       background-position: center center;
       height: 750px;
       position: relative;
-      z-index: 0; }
+      z-index: 0;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling:touch; }
       .owl-carousel.home-slider .slider-item .overlay {
         position: absolute;
         top: 0;
@@ -7838,7 +7843,8 @@ h1, h2, h3, h4, h5,
 
 .services-wrap {
   width: 100%;
-  display: block; }
+  display: block; 
+  margin-bottom: 30px;}
   @media (max-width: 991.98px) {
     .services-wrap {
       margin-bottom: 30px; } }
