@@ -46,11 +46,11 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Menu</a></li>
-                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">About</a></li>
-                    <li class="nav-item active"><a href="http://localhost:3300/register" class="nav-link">Register</a>
+                    <li class="nav-item"><a href="https://msc-project111.herokuapp.com/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="https://msc-project111.herokuapp.com/" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="https://msc-project111.herokuapp.com/" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="https://msc-project111.herokuapp.com/" class="nav-link">About</a></li>
+                    <li class="nav-item active"><a href="https://msc-project111.herokuapp.com/register" class="nav-link">Register</a>
                     </li>
                     <li class="nav-item"><a href="http://localhost:3300/cart"><img class="nav-link" src="images/cart.png" width="60" height="60" style="margin-top: 5px;"></a></li>
                 </ul>
@@ -76,9 +76,9 @@
                         <tr >
                             <div class="flex items-center my-8">
                                 <td><img class="w-24" src="/images/<%= items.item.image %>" width="70" height="70"></td>
-                                <td> <a href="http://localhost:3300/removeOne/<%=items.item._id%>" class="btn btn-default"
+                                <td> <a href="https://msc-project111.herokuapp.com/removeOne/<%=items.item._id%>" class="btn btn-default"
                                         >Remove</a>
-                                    <a href="http://localhost:3300/addOne/<%=items.item._id%>" class="btn btn-default"
+                                    <a href="https://msc-project111.herokuapp.com/addOne/<%=items.item._id%>" class="btn btn-default"
                                         >Add</a>
                                 </td>
 
@@ -105,7 +105,7 @@
                                     <span class="text-lg font-bold" style="font-family:helvetica;color: antiquewhite;">Total Amount:</span>
                                     <span class="amount text-2xl font-bold ml-2" style="font-family:helvetica;color: antiquewhite;font-size: 17px;">₹<%= session.cart.totalPrice %></span>
                                 </div>
-                                <a href="http://localhost:3300/cart/order" type="button" onclick="Notif();" class="btn btn-success">Place
+                                <a href="https://msc-project111.herokuapp.com/cart/order" type="button" onclick="Notif();" class="btn btn-success">Place
                                     Order</a>
                             </div>
 
