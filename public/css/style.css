@@ -7447,8 +7447,8 @@ h1, h2, h3, h4, h5,
       font-size: 16px;
       letter-spacing: .1em; }
     .ftco-navbar-light.scrolled .nav-link {
-/*       padding-top: 0.9rem !important; */
-      padding-bottom: 0.9rem !important;
+      /* padding-top: 0.9rem !important; */
+      padding-bottom: 0.9rem !important; 
       color: #000 !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
         color: #fac564 !important; }
@@ -8990,7 +8990,7 @@ textarea.form-control {
       box-shadow: 0 15px 25px rgba(0,0,0,.6);
       border-radius: 10px;
     }
-    
+     
     .login-box h2 {
       margin: 30 0 30px;
       padding: 0;
@@ -9031,7 +9031,6 @@ textarea.form-control {
       color: #fac564;
       font-size: 12px;
     }
-    
     .login-box form a {
       position: relative;
       display: inline-block;
@@ -9143,8 +9142,94 @@ textarea.form-control {
     position: absolute;
      color: #fac564;
       text-decoration: underline; }
-    
+  .tr
+  {
+    font-size: 19px;
+    color: #fac564;
+  }
+  .tr th{
+    font-family:helvetica
+  }
+  .tr #product
+  {
+    padding-right: 113px;
+    padding-left: 5px;
+  }
+  .tr #name{padding-right: 33px;}
+  .tr #qty{padding-right: 20px;}
+  .trx td p{
+    font-family:helvetica;
+    color: antiquewhite;
+    font-size: 17px;
+  }
+  .trx td #itemqty{
+    padding-right: 10px;
+  }
+  
+      @media (max-width: 500px) {     /* specially for iphone se*/
+        .login-box  {
+          max-width: 315px; }
+          .login-box  h1{
+            font-size: 30px; } 
+          .login-box p{
+            margin-left: 36%;
+            font-size: 10px; }
+            /* .login-box .user-box {
+              padding: 1px; } */
+            .login-box .user-box input{
+              padding: 4px; }
+          .login-box .user-box label{
+            font-size: 11px; }
+        .login-box form a{
+          padding: 5px 10px;
+            margin-left: 65px;
+            max-width: 80px;
+            font-size: 10px; } 
 
+            .tr{
+              font-size: 16px;
+            }
+            .tr #product
+            {
+              padding-right: 25px;
+              padding-left: 0px;
+            }
+            .trx #piz_thumb{
+              width: 55px; 
+              height: 55px;
+              margin-right: 0px;
+            }
+            .trx #itemname {
+              font-size: 14px;
+              margin-right: 22px;
+            
+            }
+            .trx #itemqty {
+              margin-right: 10px;
+              font-size: 14px;
+            }
+            .trx #itemprice {
+              
+              font-size: 14px;
+            }
+            .trx #hide1,#hide2{
+              display: none;
+            }
+      }
+      @media (min-width: 576px) {
+        .login-box .user-box {
+          max-width: 540px; } }
+      @media (min-width: 768px) {
+        .login-box .user-box {
+          max-width: 720px; } }
+      @media (min-width: 992px) {
+        .login-box .user-box {
+          max-width: 960px; } }
+      @media (min-width: 1200px) {
+        .login-box .user-box {
+          max-width: 1140px; } }
+
+  
     
     
     
