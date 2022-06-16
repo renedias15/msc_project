@@ -57,13 +57,13 @@
             </div>
         </div>
     </nav>
-    <div class="login-box">
+     <div class="login-box">
         <table>
             <tr style="font-size: 19px;color: #fac564;">
-                <th style="font-family: sans-serif;padding-right: 113px;padding-left: 5px;">Product </th>
-                <th style="font-family: sans-serif;padding-right: 33px;">Name</th>
-                <th style="font-family: sans-serif;padding-right: 20px;">Qty</th>
-                <th style="font-family: sans-serif;">Price</th>
+                <th style="font-family:helvetica;padding-right: 113px;padding-left: 5px;">Product </th>
+                <th style="font-family:helvetica;padding-right: 33px;">Name</th>
+                <th style="font-family:helvetica;padding-right: 20px;">Qty</th>
+                <th style="font-family:helvetica;">Price</th>
             </tr>
         </table>
         <hr>
@@ -72,8 +72,8 @@
                 <% if(items.qty !=0) { %>
 
 
-                    <table>
-                        <tr>
+                    <table >
+                        <tr >
                             <div class="flex items-center my-8">
                                 <td><img class="w-24" src="/images/<%= items.item.image %>" width="70" height="70"></td>
                                 <td> <a href="http://localhost:3300/removeOne/<%=items.item._id%>" class="btn btn-default"
@@ -85,14 +85,14 @@
 
 
                                 <div class="flex-1 ml-4">
-                                    <td> <span>
+                                    <td> <span style="font-family:helvetica;color: antiquewhite;font-size: 17px;">
                                             <%= items.item.name %>
                                         </span></td>
                                 </div>
-                                <td> <span class="flex-1" style="padding-right: 20px;">
+                                <td> <span class="flex-1" style="font-family:helvetica;padding-right: 20px;color: antiquewhite;font-size: 17px;">
                                         <%= items.qty %> Pcs
                                     </span></td>
-                                <td><span class="font-bold text-lg">₹ <%= items.price %></span></td>
+                                <td><span class="font-bold text-lg"style="font-family:helvetica;color: antiquewhite;font-size: 17px;" >₹ <%= items.price %></span></td>
                         </tr>
 
                     </table>
@@ -102,8 +102,8 @@
 
                             <div class="text-right py-4">
                                 <div>
-                                    <span class="text-lg font-bold">Total Amount:</span>
-                                    <span class="amount text-2xl font-bold ml-2">₹<%= session.cart.totalPrice %></span>
+                                    <span class="text-lg font-bold" style="font-family:helvetica;color: antiquewhite;">Total Amount:</span>
+                                    <span class="amount text-2xl font-bold ml-2" style="font-family:helvetica;color: antiquewhite;font-size: 17px;">₹<%= session.cart.totalPrice %></span>
                                 </div>
                                 <a href="http://localhost:3300/cart/order" type="button" onclick="Notif();" class="btn btn-success">Place
                                     Order</a>
