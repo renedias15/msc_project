@@ -1,40 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<head>
-    <link rel="stylesheet" href="toastr/toastr.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="toastr/toastr.min.js"></script>
-<title>PizzaExpress.com</title>
-<link rel="icon" type="image/x-icon" href="images/favicon.png">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
-
-<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-
-<link rel="stylesheet" href="css/aos.css">
-
-<link rel="stylesheet" href="css/ionicons.min.css">
-
-<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="css/jquery.timepicker.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
-<link rel="stylesheet" href="css/flaticon.css">
-<link rel="stylesheet" href="css/icomoon.css">
-<link rel="stylesheet" href="css/style.css">
-</head>
-
+    <head>
+        <title>PizzaExpress---Order now!</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.png">
+        <link rel="stylesheet" href="toastr/toastr.min.css">
+        <script src="toastr/toastr.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+      
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+      
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+      
+        <link rel="stylesheet" href="css/aos.css">
+      
+        <link rel="stylesheet" href="css/ionicons.min.css">
+      
+        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="css/jquery.timepicker.css">
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+      
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/style.css">
+      </head>
+      
 <body style="background-image: url(images/bg_3.jpg)">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
@@ -57,7 +57,7 @@
             </div>
         </div>
     </nav>
- <div class="login-box">
+    <div class="login-box">
         <table>
             <tr class="tr">
                 <th id="product">Product </th>
@@ -66,41 +66,51 @@
                 <th id="price">Price</th>
             </tr>
         </table>
-        <hr>
         <% if(session.cart.totalPrice !=0 ) { %>
             <% items.forEach(function(items) { %>
                 <% if(items.qty !=0) { %>
 
 
-                    <table >
+                    <table>
                         <tr class="trx">
                             <div class="flex items-center my-8">
-                                <td><img id="piz_thumb"class="w-24" src="/images/<%= items.item.image %>" width="70" height="70"></td>
-                                <td> <a id="hide1" href="https://msc-project111.herokuapp.com/removeOne/<%=items.item._id%>" class="btn btn-default"
-                                        >Remove</a>
-                                    <a id="hide2" href="https://msc-project111.herokuapp.com/addOne/<%=items.item._id%>" class="btn btn-default"
-                                        >Add</a>
+                                <td><img id="piz_thumb" class="w-24" src="/images/<%= items.item.image %>" width="70"
+                                        height="70"></td>
+                                <td> <a id="hide1" href="https://msc-project111.herokuapp.com/removeOne/<%=items.item._id%>">-</a></td>
+                                    <td><a id="hide2" href="https://msc-project111.herokuapp.com/addOne/<%=items.item._id%>">+</a>
                                 </td>
                                 <div class="flex-1 ml-4">
-                                    <td> <p id="itemname">
+                                    <td>
+                                    <div class="uniform"><p id="itemname">
                                             <%= items.item.name %>
-                                        </p></td>
+                                        </p></div>
+                                    </td>
                                 </div>
-                                <td> <p id="itemqty"class="flex-1" ><%= items.qty %> Pcs</p></td>
-                                <td><p id="itemprice"class="font-bold text-lg" >₹ <%= items.price %></p></td>
+                                <td>
+                                    <p id="itemqty" class="flex-1">
+                                        <%= items.qty %> Pcs
+                                    </p>
+                                </td>
+                                <td>
+                                    <p id="itemprice" class="font-bold text-lg">₹ <%= items.price %>
+                                    </p>
+                                </td>
                         </tr>
 
                     </table>
-                    <hr>
+                   
                     <% } %>
                         <% }) %>
 
                             <div class="text-right py-4">
                                 <div>
-                                    <span id="totprice" class="text-lg font-bold" style="font-family:helvetica;color: antiquewhite;">Total Amount:  ₹<%= session.cart.totalPrice %></span>
- 
+                                    <span id="totprice" class="text-lg font-bold"
+                                        style="font-family:helvetica;color: antiquewhite;">Total Amount: ₹<%=
+                                            session.cart.totalPrice %></span>
+
                                 </div>
-                                <a href="https://msc-project111.herokuapp.com/cart/order" type="button" onclick="Notif();" class="btn btn-success">Place
+                                <a href="https://msc-project111.herokuapp.com/cart/order" type="button" onclick="Notif();"
+                                    class="btn btn-success">Place
                                     Order</a>
                             </div>
 
@@ -129,9 +139,9 @@
                 Command: toastr["success"]("Your Order has been placed")
 
             }
-            
+
         </script>
-        <script src="js/jquery.min.js"></script>
+          <script src="js/jquery.min.js"></script>
           <script src="js/jquery-migrate-3.0.1.min.js"></script>
           <script src="js/popper.min.js"></script>
           <script src="js/bootstrap.min.js"></script>
@@ -149,5 +159,5 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
           <script src="js/google-map.js"></script>
           <script src="js/main.js"></script>
-
+</body>
 </html>
