@@ -52,18 +52,18 @@
                     <li class="nav-item"><a href="https://msc-project111.herokuapp.com/" class="nav-link">About</a></li>
                     <li class="nav-item active"><a href="https://msc-project111.herokuapp.com/register" class="nav-link">Register</a>
                     </li>
-                    <li class="nav-item"><a href="http://localhost:3300/cart"><img class="nav-link" src="images/cart.png" width="60" height="60" style="margin-top: 5px;"></a></li>
+                    <li class="nav-item"><a href="https://msc-project111.herokuapp.com/cart"><img class="nav-link" src="images/cart.png" width="60" height="60" style="margin-top: 5px;"></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-     <div class="login-box">
+ <div class="login-box">
         <table>
-            <tr style="font-size: 19px;color: #fac564;">
-                <th style="font-family:helvetica;padding-right: 113px;padding-left: 5px;">Product </th>
-                <th style="font-family:helvetica;padding-right: 33px;">Name</th>
-                <th style="font-family:helvetica;padding-right: 20px;">Qty</th>
-                <th style="font-family:helvetica;">Price</th>
+            <tr class="tr">
+                <th id="product">Product </th>
+                <th id="name">Name</th>
+                <th id="qty">Qty</th>
+                <th id="price">Price</th>
             </tr>
         </table>
         <hr>
@@ -73,26 +73,21 @@
 
 
                     <table >
-                        <tr >
+                        <tr class="trx">
                             <div class="flex items-center my-8">
-                                <td><img class="w-24" src="/images/<%= items.item.image %>" width="70" height="70"></td>
-                                <td> <a href="https://msc-project111.herokuapp.com/removeOne/<%=items.item._id%>" class="btn btn-default"
+                                <td><img id="piz_thumb"class="w-24" src="/images/<%= items.item.image %>" width="70" height="70"></td>
+                                <td> <a id="hide1" href="https://msc-project111.herokuapp.com/removeOne/<%=items.item._id%>" class="btn btn-default"
                                         >Remove</a>
-                                    <a href="https://msc-project111.herokuapp.com/addOne/<%=items.item._id%>" class="btn btn-default"
+                                    <a id="hide2" href="https://msc-project111.herokuapp.com/addOne/<%=items.item._id%>" class="btn btn-default"
                                         >Add</a>
                                 </td>
-
-
-
                                 <div class="flex-1 ml-4">
-                                    <td> <span style="font-family:helvetica;color: antiquewhite;font-size: 17px;">
+                                    <td> <p id="itemname">
                                             <%= items.item.name %>
-                                        </span></td>
+                                        </p></td>
                                 </div>
-                                <td> <span class="flex-1" style="font-family:helvetica;padding-right: 20px;color: antiquewhite;font-size: 17px;">
-                                        <%= items.qty %> Pcs
-                                    </span></td>
-                                <td><span class="font-bold text-lg"style="font-family:helvetica;color: antiquewhite;font-size: 17px;" >₹ <%= items.price %></span></td>
+                                <td> <p id="itemqty"class="flex-1" ><%= items.qty %> Pcs</p></td>
+                                <td><p id="itemprice"class="font-bold text-lg" >₹ <%= items.price %></p></td>
                         </tr>
 
                     </table>
@@ -102,10 +97,10 @@
 
                             <div class="text-right py-4">
                                 <div>
-                                    <span class="text-lg font-bold" style="font-family:helvetica;color: antiquewhite;">Total Amount:</span>
-                                    <span class="amount text-2xl font-bold ml-2" style="font-family:helvetica;color: antiquewhite;font-size: 17px;">₹<%= session.cart.totalPrice %></span>
+                                    <span id="totprice" class="text-lg font-bold" style="font-family:helvetica;color: antiquewhite;">Total Amount:  ₹<%= session.cart.totalPrice %></span>
+ 
                                 </div>
-                                <a href="https://msc-project111.herokuapp.com/cart/order" type="button" onclick="setTimeout(Notif,4000);" class="btn btn-success">Place
+                                <a href="https://msc-project111.herokuapp.com/cart/order" type="button" onclick="Notif();" class="btn btn-success">Place
                                     Order</a>
                             </div>
 
