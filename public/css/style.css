@@ -9229,6 +9229,9 @@ textarea.form-control {
             .tr #name{
               padding-right: 42px;
             }
+        .tr #qty{
+              padding-right: 25px;
+            }
             .trx #piz_thumb{
               width: 30px; 
               height: 30px;
