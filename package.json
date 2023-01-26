@@ -2,7 +2,7 @@
   "name": "(seminar)",
   "version": "food delivery app",
   "description": "food delivery app",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon server.js"
