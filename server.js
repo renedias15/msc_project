@@ -1,4 +1,4 @@
-require('dotenv').config()
+//require('dotenv').config()
 const express = require('express')
 const flash = require('express-flash')
 const app = express()
