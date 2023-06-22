@@ -1,0 +1,233 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="toastr/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="toastr/toastr.min.js"></script>
+    <title>PizzaExpress.com</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .login-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            color: #fff;
+            margin: 100px auto;
+            width: 80%;
+        }
+
+        .login-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .login-box table th {
+            font-family: Helvetica;
+            padding-right: 113px;
+            padding-left: 5px;
+            font-size: 19px;
+            color: #fac564;
+        }
+
+        .login-box table td {
+            vertical-align: middle;
+        }
+
+        .login-box hr {
+            border: none;
+            border-top: 1px solid #fac564;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .login-box img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .login-box a {
+            color: #fac564;
+        }
+
+        .login-box a:hover {
+            color: #fac564;
+            text-decoration: none;
+        }
+
+        .login-box .text-right {
+            margin-top: 20px;
+        }
+
+        .login-box .text-right span {
+            font-family: Helvetica;
+            color: #fac564;
+            font-size: 17px;
+        }
+
+        .login-box .text-right .amount {
+            font-family: Helvetica;
+            color: #fac564;
+            font-size: 17px;
+        }
+
+        .login-box .text-right .btn {
+            font-family: Helvetica;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(images/bg_3.jpg)">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span class="flaticon-pizza-1 mr-1"></span>Pizza<br><small>Express</small></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/register" class="nav-link">Register</a>
+                    </li>
+                    <li class="nav-item"><a href="http://localhost:3300/cart/cartpage"><img class="nav-link"
+                                src="images/cart.png" width="60" height="60" style="margin-top: 5px;"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="login-box mt-2">
+        <div class="container mt-4">
+            <h1 class="text-center" >CART</h1>
+          </div>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Action</th>
+                <th>Name</th>
+                <th>Qty</th>
+                <th>Price</th>
+            </tr>
+        
+        <hr>
+        <% if(session.cart.totalPrice !=0 ) { %>
+        <% items.forEach(function(items) { %>
+        <% if(items.qty !=0) { %>
+
+
+        
+            <tr>
+                <td><img class="w-24" src="/images/<%= items.item.image %>" width="70" height="70"></td>
+                <td>
+                    <button type="button" onclick="addToCart('<%=items.item._id%>')" class="btn btn-primary">Add</button>
+                    <button type="button" onclick="removeFromCart('<%=items.item._id%>')" class="btn btn-danger">Remove</button>
+                </td>
+                <td>
+                    <span><%= items.item.name %></span>
+                </td>
+                <td>
+                    <span><%= items.qty %> Pcs</span>
+                </td>
+                <td>
+                    <span class="font-bold text-lg">₹ <%= items.price %></span>
+                </td>
+            </tr>
+        
+        
+        <% } %>
+        <% }) %>
+    </table>
+    <hr>
+        <div class="text-right py-4">
+            <div>
+                <span class="text-lg font-bold">Total Amount:</span>
+                <span class="amount text-2xl font-bold ml-2">₹<%= session.cart.totalPrice %></span>
+            </div>
+            <a style="color: #fff;" href="http://localhost:3300/cart/cart/order" type="button" onclick="OrderPlacedNotif();" class="btn btn-success">Place
+                Order</a>
+        </div>
+
+    </div>
+    <% } %>
+
+    <script>
+        function OrderPlacedNotif() {
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "100",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            Command: toastr["success"]("Your Order has been placed")
+
+        }
+        function addToCart(itemId) {
+            fetch(`http://localhost:3300/cart/addOne/${itemId}`, { method: 'GET' })
+              .then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                  console.error('Error adding item to cart');
+                }
+              })
+              .catch(error => {
+                console.error('Error adding item to cart:', error);
+              });
+          }
+        
+          function removeFromCart(itemId) {
+            fetch(`http://localhost:3300/cart/removeOne/${itemId}`, { method: 'GET' })
+              .then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                  console.error('Error removing item from cart');
+                }
+              })
+              .catch(error => {
+                console.error('Error removing item from cart:', error);
+              });
+          }
+        
+    </script>
+
+</html>
