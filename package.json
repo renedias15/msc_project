@@ -1,6 +1,6 @@
 {
-  "name": "(seminar)",
-  "version": "food delivery app",
+  "name": "msc-project",
+  "version": "1.0.0",
   "description": "food delivery app",
   "main": "server.js",
   "license": "MIT",
