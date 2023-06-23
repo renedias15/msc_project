@@ -60,7 +60,7 @@ router.get('/cart/order/:long/:lat', function (req, res) {
     console.log(req.user)           
     if (!req.user) {
         req.flash('success', 'you need to be logged in to order')
-        res.redirect('/login1')
+        return res.status(400).json({ success: false });
     }
     else {
         var fart = new Cart(req.session.cart)
