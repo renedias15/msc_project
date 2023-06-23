@@ -2,14 +2,14 @@ require('dotenv').config()
 const express = require('express')
 const flash = require('express-flash')
 const app = express()
-const passport = require('passport')
+// const passport = require('passport')
 const bodyParser = require('body-parser')
 const user = require('./routes/user')
 const item = require('./models/item')
 const session = require('./session')
 
 const PORT = process.env.PORT || 3300     //if any other port exists then listen there else 3000
-const passportInit = require('./config/passport')
+// const passportInit = require('./config/passport')
 
 app.use(express.json())
 app.use(flash())
@@ -27,7 +27,7 @@ app.use('/cart', express.static('public'));
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
-const dbConfig = require('./config/config.js');
+const dbConfig = require('./config.js');
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
@@ -42,9 +42,9 @@ mongoose.connect(dbConfig.url, {
         process.exit();
     });
 
-passportInit(passport)
-app.use(passport.initialize())
-app.use(passport.session())
+// passportInit(passport)
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 
 app.use(function (req, res, next) {
@@ -56,6 +56,7 @@ app.listen(3300, () => {
 })
 app.get('/', async function (req, res) {
     const food = await item.find()
+    // console.log(food)
     return res.render('index', { food: food })
 })
 app.route("/user")
