@@ -1,10 +1,16 @@
 const Cart = require('../models/cart')
 const item = require('../models/item')
-
+const orderModel =require('../models/order')
 const express = require('express')
 const router = express.Router()
 const session = require('../session')
 const app = express()
+const passport = require('passport')
+const passportInit = require('../config/passport')
+
+passportInit(passport)
+router.use(passport.initialize())
+router.use(passport.session())
 
 app.use(session.getSessionMiddleware())
 
@@ -50,7 +56,8 @@ router.get('/cartpage', function (req, res) {
         console.log(req.session.cart.items);
     }
 })
-router.get('/cart/order', function (req, res) {                 
+router.get('/cart/order/:long/:lat', function (req, res) {      
+    console.log(req.user)           
     if (!req.user) {
         req.flash('success', 'you need to be logged in to order')
         res.redirect('/login1')
@@ -59,7 +66,9 @@ router.get('/cart/order', function (req, res) {
         var fart = new Cart(req.session.cart)
         const orderedItems = new orderModel({
             customerId: req.user.email,
-            items: fart.generateArray()
+            items: fart.generateArray(),
+            longitude:req.params.long,
+            latitude:req.params.lat
         })
         orderedItems.save().then(result => {
             req.flash('success', 'Order placed succesfully')
