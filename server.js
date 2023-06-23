@@ -27,7 +27,7 @@ app.use('/cart', express.static('public'));
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
-const dbConfig = require('./config.js');
+const dbConfig = require('./config/config.js');
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
