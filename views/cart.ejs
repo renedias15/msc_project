@@ -31,6 +31,15 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+
+<!-- Add the Leaflet CSS and JavaScript files -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css">
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
     <style>
         .login-box {
             background-color: rgba(0, 0, 0, 0.5);
@@ -98,6 +107,9 @@
         .login-box .text-right .btn {
             font-family: Helvetica;
         }
+        #map {
+            height: 400px;
+        }
     </style>
 </head>
 
@@ -111,13 +123,13 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="https://msc-project.onrender.com/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="https://msc-project.onrender.com/" class="nav-link">Menu</a></li>
-                    <li class="nav-item"><a href="https://msc-project.onrender.com/" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="https://msc-project.onrender.com/" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="https://msc-project.onrender.com/register" class="nav-link">Register</a>
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="http://localhost:3300/register" class="nav-link">Register</a>
                     </li>
-                    <li class="nav-item"><a href="https://msc-project.onrender.com/cart/cartpage"><img class="nav-link"
+                    <li class="nav-item"><a href="http://localhost:3300/cart/cartpage"><img class="nav-link"
                                 src="images/cart.png" width="60" height="60" style="margin-top: 5px;"></a></li>
                 </ul>
             </div>
@@ -126,8 +138,8 @@
     
     <div class="login-box mt-2">
         <div class="container mt-4">
-            <h1 class="text-center" >CART</h1>
-          </div>
+            <h1 class="text-center">CART</h1>
+        </div>
         <table>
             <tr>
                 <th>Product</th>
@@ -136,14 +148,10 @@
                 <th>Qty</th>
                 <th>Price</th>
             </tr>
-        
-        <hr>
-        <% if(session.cart.totalPrice !=0 ) { %>
-        <% items.forEach(function(items) { %>
-        <% if(items.qty !=0) { %>
-
-
-        
+            <hr>
+            <% if(session.cart.totalPrice !=0 ) { %>
+            <% items.forEach(function(items) { %>
+            <% if(items.qty !=0) { %>
             <tr>
                 <td><img class="w-24" src="/images/<%= items.item.image %>" width="70" height="70"></td>
                 <td>
@@ -160,24 +168,87 @@
                     <span class="font-bold text-lg">₹ <%= items.price %></span>
                 </td>
             </tr>
-        
-        
-        <% } %>
-        <% }) %>
-    </table>
-    <hr>
+            <% } %>
+            <% }) %>
+        </table>
+        <hr>
         <div class="text-right py-4">
             <div>
                 <span class="text-lg font-bold">Total Amount:</span>
                 <span class="amount text-2xl font-bold ml-2">₹<%= session.cart.totalPrice %></span>
             </div>
-            <a style="color: #fff;" href="https://msc-project.onrender.com/cart/cart/order" type="button" onclick="OrderPlacedNotif();" class="btn btn-success">Place
-                Order</a>
+            <a style="color: #fff;"  onclick="openMapModal()" type="button"  class="btn btn-success">Place Order</a>
+            <!-- <button type="button" onclick="openMapModal()" class="btn btn-primary">Open Map</button> -->
         </div>
+    </div>
 
+    <!-- Map Modal -->
+    <div class="modal" id="mapModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:black">Please select delivery location</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="map" style="height: 400px;"></div>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-secondary" id="confirmAddressBtn">Confirm</button>
+                  </div>
+            </div>
+        </div>
     </div>
     <% } %>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map;
+        var marker;
 
+        function openMapModal() {
+            $('#mapModal').modal('show');
+            initializeMap();
+        }
+
+        function initializeMap() {
+            map = L.map('map').setView([0, 0], 13); 
+
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    map.setView([latitude, longitude], 13); 
+                });
+            }
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                maxZoom: 18
+            }).addTo(map);
+
+            map.on('click', function(e) {
+                var latitude = e.latlng.lat;
+                var longitude = e.latlng.lng;
+
+                if (marker) {
+                    map.removeLayer(marker); 
+                }
+
+                marker = L.marker([latitude, longitude]).addTo(map);
+                marker.bindPopup("Selected Location: " + latitude + ", " + longitude).openPopup();
+
+                document.getElementById("confirmAddressBtn").style.display = "block";
+            });
+
+            document.getElementById("confirmAddressBtn").addEventListener("click", function() {
+                var latitude = marker.getLatLng().lat;
+                var longitude = marker.getLatLng().lng;
+
+                placeOrder(latitude,longitude)
+             //window.location.href = "http://localhost:3300/cart/cart/order/" + longitude + "/" + latitude;
+            });
+        }
+    </script>
     <script>
         function OrderPlacedNotif() {
             toastr.options = {
@@ -199,9 +270,12 @@
             }
             Command: toastr["success"]("Your Order has been placed")
 
+            setTimeout(() => {
+  window.location.href = "http://localhost:3300/";
+}, 3000);
         }
         function addToCart(itemId) {
-            fetch(`https://msc-project.onrender.com/cart/addOne/${itemId}`, { method: 'GET' })
+            fetch(`http://localhost:3300/cart/addOne/${itemId}`, { method: 'GET' })
               .then(response => {
                 if (response.ok) {
                     location.reload();
@@ -215,10 +289,23 @@
           }
         
           function removeFromCart(itemId) {
-            fetch(`https://msc-project.onrender.com/cart/removeOne/${itemId}`, { method: 'GET' })
+            fetch(`http://localhost:3300/cart/removeOne/${itemId}`, { method: 'GET' })
               .then(response => {
                 if (response.ok) {
                     location.reload();
+                } else {
+                  console.error('Error removing item from cart');
+                }
+              })
+              .catch(error => {
+                console.error('Error removing item from cart:', error);
+              });
+          }
+          function placeOrder(latitude,longitude) {
+            fetch(`http://localhost:3300/cart/cart/order/${longitude}/${latitude}`, { method: 'GET' })
+              .then(response => {
+                if (response.ok) {
+                    OrderPlacedNotif()
                 } else {
                   console.error('Error removing item from cart');
                 }
