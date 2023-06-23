@@ -306,8 +306,8 @@
               .then(response => {
                 if (response.ok) {
                     OrderPlacedNotif()
-                } else {
-                  console.error('Error removing item from cart');
+                } else if(response.status == 400) {
+                    window.location.href = "http://localhost:3300/login";
                 }
               })
               .catch(error => {
