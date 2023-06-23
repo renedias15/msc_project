@@ -9,6 +9,8 @@ const orderSchema = new Schema({
     items:{
             type: Object
         },
+    longitude:{ type:String},
+    latitude:{ type:String},
     date:{type : Date, default: Date.now}
 })
 
